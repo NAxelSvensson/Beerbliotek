@@ -1,0 +1,36 @@
+﻿@page
+@using MySql.Data.MySqlClient;
+@{
+	//db conn
+	string server = "localhost";
+	string database = "mystore";
+	string user = "root";
+	string password = "root9";
+	//db conn
+
+	try
+	{
+		string id = Request.Query["id"];
+
+		string connectionString = $"SERVER={server};DATABASE={database};UID={user};PASSWORD={password};";
+		using (MySqlConnection connection = new MySqlConnection(connectionString))
+		{
+			connection.Open();
+
+			string sql = "DELETE FROM clients WHERE id=@id";
+
+			using (MySqlCommand command = new MySqlCommand(sql, connection))
+			{
+				command.Parameters.AddWithValue("@id", id);
+
+				command.ExecuteNonQuery();
+			}
+		}
+
+	}
+	catch (Exception ex)
+	{
+	}
+
+	Response.Redirect("/Clients/Index");
+}
