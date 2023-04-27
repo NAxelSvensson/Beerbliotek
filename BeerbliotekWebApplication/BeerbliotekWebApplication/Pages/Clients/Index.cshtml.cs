@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MySql.Data.MySqlClient;
 
-namespace ASP_Tutorial_April26.Pages.Clients
+namespace BeerbliotekWebApplication.Pages.Clients
 {
     public class IndexModel : PageModel
     {
