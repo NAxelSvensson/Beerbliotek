@@ -4,7 +4,7 @@
 }
 
 <br/>
-<h2>New Client</h2>
+<h2>New Beer</h2>
 
 
 @if (Model.errorMessage.Length > 0)
@@ -21,25 +21,37 @@
 	<div class="row mb-3">
 		<label class="col-sm-3 col-form-label">Name</label>
 		<div class="col-sm-6">
-			<input type="text" class="form-control" name="name" value="@Model.clientInfo.name">
+			<input type="text" class="form-control" name="name" value="@Model.beerInfo.Name">
 		</div>
 	</div>
 	<div class="row mb-3">
-		<label class="col-sm-3 col-form-label">Email</label>
+		<label class="col-sm-3 col-form-label">Alcohol</label>
 		<div class="col-sm-6">
-			<input type="text" class="form-control" name="email" value="@Model.clientInfo.email">
+			<input type="text" class="form-control" name="Alcohol" value="@Model.beerInfo.Alcohol">
 		</div>
 	</div>
 	<div class="row mb-3">
-		<label class="col-sm-3 col-form-label">Phone</label>
+		<label class="col-sm-3 col-form-label">Price</label>
 		<div class="col-sm-6">
-			<input type="text" class="form-control" name="phone" value="@Model.clientInfo.phone">
+			<input type="text" class="form-control" name="Price" value="@Model.beerInfo.Price">
 		</div>
 	</div>
 	<div class="row mb-3">
-		<label class="col-sm-3 col-form-label">Address</label>
+		<label class="col-sm-3 col-form-label">Volume</label>
 		<div class="col-sm-6">
-			<input type="text" class="form-control" name="address" value="@Model.clientInfo.address">
+			<input type="text" class="form-control" name="Volume" value="@Model.beerInfo.Volume">
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Type</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="Type" value="@Model.beerInfo.Type">
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Country</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="Country" value="@Model.beerInfo.Country">
 		</div>
 	</div>
 

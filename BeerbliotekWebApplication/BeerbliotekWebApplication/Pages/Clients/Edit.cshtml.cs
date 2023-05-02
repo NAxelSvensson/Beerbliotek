@@ -1,21 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace BeerbliotekWebApplication.Pages.Clients
 {
     public class EditModel : PageModel
     {
-		public ClientInfo clientInfo = new ClientInfo();
+		public BeerInfo beerInfo = new BeerInfo();
 		public string errorMessage = "";
 		public string successMessage = "";
-
-		//db conn
-		string server = "localhost";
-		string database = "mystore";
-		string user = "root";
-		string password = "root9";
-		//db conn
 
 		public void OnGet()
         {
@@ -26,24 +19,26 @@ namespace BeerbliotekWebApplication.Pages.Clients
 
 			try
 			{
-				string connectionString = $"SERVER={server};DATABASE={database};UID={user};PASSWORD={password};";
+				string connectionString = "Data Source = localhost; Initial Catalog = Beerbliotek; Integrated Security = True";
 
-				using (MySqlConnection connection = new MySqlConnection(connectionString))
+				using (SqlConnection connection = new SqlConnection(connectionString))
 				{
 					connection.Open();
-					string sql = "SELECT * FROM clients WHERE id=@id";
-					using (MySqlCommand command = new MySqlCommand(sql, connection))
+					string sql = "SELECT * FROM Beers WHERE id=@id";
+					using (SqlCommand command = new SqlCommand(sql, connection))
 					{
 						command.Parameters.AddWithValue("@id", id);
-						using (MySqlDataReader reader = command.ExecuteReader())
+						using (SqlDataReader reader = command.ExecuteReader())
 						{
 							if (reader.Read())
 							{
-								clientInfo.id = "" + reader.GetInt32(0);
-								clientInfo.name = reader.GetString(1);
-								clientInfo.email = reader.GetString(2);
-								clientInfo.phone = reader.GetString(3);
-								clientInfo.address = reader.GetString(4);
+								beerInfo.Id = "" + reader.GetInt32(0);
+								beerInfo.Name = reader.GetString(1);
+								beerInfo.Alcohol = "" + reader.GetSqlSingle(2);
+								beerInfo.Price = "" + reader.GetSqlSingle(3);
+								beerInfo.Volume = "" + reader.GetInt32(4);
+								beerInfo.Type = "" + reader.GetInt32(5);
+								beerInfo.Country = reader.GetString(6);
 							}
 						}
 					}
@@ -60,15 +55,18 @@ namespace BeerbliotekWebApplication.Pages.Clients
 		public void OnPost() 
 		{
 			//fill the client info with the data from the form
-			clientInfo.id = Request.Form["id"];
-			clientInfo.name = Request.Form["name"];
-			clientInfo.email = Request.Form["email"];
-			clientInfo.phone = Request.Form["phone"];
-			clientInfo.address = Request.Form["address"];
+			beerInfo.Id = Request.Form["Id"];
+			beerInfo.Name = Request.Form["Name"];
+			beerInfo.Alcohol = Request.Form["Alcohol"];
+			beerInfo.Price = Request.Form["Price"];
+			beerInfo.Volume = Request.Form["Volume"];
+			beerInfo.Type = Request.Form["Type"];
+			beerInfo.Country = Request.Form["Country"];
 
 			//if any field is empty, display errorMessage
-			if (clientInfo.name.Length == 0 || clientInfo.email.Length == 0 ||
-				clientInfo.phone.Length == 0 || clientInfo.address.Length == 0)
+			if (beerInfo.Name.Length == 0 || beerInfo.Alcohol.Length == 0 ||
+				beerInfo.Price.Length == 0 || beerInfo.Volume.Length == 0
+				|| beerInfo.Type.Length == 0 || beerInfo.Country.Length == 0)
 			{
 				errorMessage = "All the fields are required.";
 				return;
@@ -76,22 +74,24 @@ namespace BeerbliotekWebApplication.Pages.Clients
 
 			try
 			{
-				string connectionString = $"SERVER={server};DATABASE={database};UID={user};PASSWORD={password};";
-				using (MySqlConnection connection = new MySqlConnection(connectionString))
+				string connectionString = "Data Source = localhost; Initial Catalog = Beerbliotek; Integrated Security = True";
+				using (SqlConnection connection = new SqlConnection(connectionString))
 				{
 					connection.Open();
 
-					string sql = "UPDATE clients " +
-								"SET name=@name, email=@email, phone=@phone, address=@address " +
+					string sql = "UPDATE Beers " +
+								"SET name=@name, alcohol=@alcohol, price=@price, volume=@volume, type=@type, country=@country " +
 								"WHERE id=@id";
 
-					using (MySqlCommand command = new MySqlCommand(sql, connection))
+					using (SqlCommand command = new SqlCommand(sql, connection))
 					{
-						command.Parameters.AddWithValue("@name", clientInfo.name);
-						command.Parameters.AddWithValue("@email", clientInfo.email);
-						command.Parameters.AddWithValue("@phone", clientInfo.phone);
-						command.Parameters.AddWithValue("@address", clientInfo.address);
-						command.Parameters.AddWithValue("@id", clientInfo.id);
+						command.Parameters.AddWithValue("@name", beerInfo.Name);
+						command.Parameters.AddWithValue("@alcohol", beerInfo.Alcohol);
+						command.Parameters.AddWithValue("@price", beerInfo.Price);
+						command.Parameters.AddWithValue("@volume", beerInfo.Volume);
+						command.Parameters.AddWithValue("@type", beerInfo.Type);
+						command.Parameters.AddWithValue("@country", beerInfo.Country);
+						command.Parameters.AddWithValue("@id", beerInfo.Id);
 
 						command.ExecuteNonQuery();
 					}

@@ -1,22 +1,15 @@
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace BeerbliotekWebApplication.Pages.Clients
 {
     public class CreateModel : PageModel
     {
-        public ClientInfo clientInfo = new ClientInfo();
+        public BeerInfo beerInfo = new BeerInfo();
         public string errorMessage = "";
         public string successMessage = "";
-
-		//db conn
-		string server = "localhost";
-		string database = "mystore";
-		string user = "root";
-		string password = "root9";
-		//db conn
 
 		public void OnGet()
         {
@@ -25,14 +18,17 @@ namespace BeerbliotekWebApplication.Pages.Clients
 		public void OnPost()
 		{
             //link the clientinfo parameters with the html form parameters
-            clientInfo.name = Request.Form["name"];
-            clientInfo.email = Request.Form["email"];
-            clientInfo.phone = Request.Form["phone"];
-            clientInfo.address = Request.Form["address"];
+            beerInfo.Name = Request.Form["Name"];
+            beerInfo.Alcohol = Request.Form["Alcohol"];
+            beerInfo.Price = Request.Form["Price"];
+            beerInfo.Volume = Request.Form["Volume"];
+            beerInfo.Type = Request.Form["Type"];
+            beerInfo.Country = Request.Form["Country"];
 
             //if one of the fields are empty, display errorMessage to the user
-            if(clientInfo.name.Length == 0 || clientInfo.email.Length == 0 ||
-                clientInfo.phone.Length == 0 || clientInfo.address.Length == 0)
+            if(beerInfo.Name.Length == 0 || beerInfo.Alcohol.Length == 0 ||
+                beerInfo.Price.Length == 0 || beerInfo.Volume.Length == 0
+				|| beerInfo.Type.Length == 0 || beerInfo.Country.Length == 0)
             {
                 errorMessage = "All the fields are required.";
                 return;
@@ -41,22 +37,24 @@ namespace BeerbliotekWebApplication.Pages.Clients
 			//save the new client into the database
 			try
             {
-				string connectionString = $"SERVER={server};DATABASE={database};UID={user};PASSWORD={password};";
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+				string connectionString = "Data Source = localhost; Initial Catalog = Beerbliotek; Integrated Security = True";
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string sql = "INSERT INTO clients " +
-                        "(name, email, phone, address) VALUES " +
-                        "(@name, @email, @phone, @address);";
+                    string sql = "INSERT INTO Beers " +
+                        "(Name, Alcohol, Price, Volume, Type, Country) VALUES " +
+						"(@name, @alcohol, @price, @volume, @type, @country);";
 
                     //replace @name, @email parameters with what the user entered into the form
 
-                    using(MySqlCommand command = new MySqlCommand(sql, connection))
+                    using(SqlCommand command = new SqlCommand(sql, connection))
                     {
-                        command.Parameters.AddWithValue("@name", clientInfo.name);
-                        command.Parameters.AddWithValue("@email", clientInfo.email);
-                        command.Parameters.AddWithValue("@phone", clientInfo.phone);
-                        command.Parameters.AddWithValue("@address", clientInfo.address);
+                        command.Parameters.AddWithValue("@name", beerInfo.Name);
+                        command.Parameters.AddWithValue("@alcohol", beerInfo.Alcohol);
+                        command.Parameters.AddWithValue("@price", beerInfo.Price);
+                        command.Parameters.AddWithValue("@volume", beerInfo.Volume);
+                        command.Parameters.AddWithValue("@type", beerInfo.Type);
+                        command.Parameters.AddWithValue("@country", beerInfo.Country);
 
                         //execute query
                         command.ExecuteNonQuery();
@@ -71,8 +69,8 @@ namespace BeerbliotekWebApplication.Pages.Clients
             }
 
             //clear the fields of the clientInfo object
-            clientInfo.name = ""; clientInfo.email = ""; clientInfo.phone = ""; clientInfo.address = "";
-            successMessage = "New client added successfully.";
+            beerInfo.Name = ""; beerInfo.Alcohol = ""; beerInfo.Price = ""; beerInfo.Volume = ""; beerInfo.Type = ""; beerInfo.Country = "";
+            successMessage = "New beer added successfully.";
 		}
 	}
 }

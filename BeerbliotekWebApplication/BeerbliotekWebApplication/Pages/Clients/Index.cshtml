@@ -4,33 +4,35 @@
 }
 
 <br />
-<h2>List of Clients</h2>
-<a class="btn btn-primary btn-sm" href="/Clients/Create">New Client</a>
+<h2>List of Beers</h2>
+<a class="btn btn-primary btn-sm" href="/Clients/Create">New Beer</a>
 <table class="table">
 	<thead>
 		<tr>
 			<th>ID</th>
 			<th>Name</th>
-			<th>Email</th>
-			<th>Phone</th>
-			<th>Address</th>
-			<th>Created At</th>
+			<th>Alcohol</th>
+			<th>Price</th>
+			<th>Volume</th>
+			<th>Type</th>
+			<th>Country</th>
 			<th>Action</th>
 		</tr>
 	</thead>
 	<tbody>
-		@foreach (var item in Model.listClients)
+		@foreach (var item in Model.listBeers)
 		{
 			<tr>
-				<td>@item.id</td>
-				<td>@item.name</td>
-				<td>@item.email</td>
-				<td>@item.phone</td>
-				<td>@item.address</td>
-				<td>@item.created_at</td>
+				<td>@item.Id</td>
+				<td>@item.Name</td>
+				<td>@item.Alcohol</td>
+				<td>@item.Price</td>
+				<td>@item.Volume</td>
+				<td>@item.Type</td>
+				<td>@item.Country</td>
 				<td>
-					<a class="btn btn-primary btn-sm" href="/Clients/Edit?id=@item.id">Edit</a>
-					<a class="btn btn-danger btn-sm" href="/Clients/Delete?id=@item.id">Delete</a>
+					<a class="btn btn-primary btn-sm" href="/Clients/Edit?id=@item.Id">Edit</a>
+					<a class="btn btn-danger btn-sm" href="/Clients/Delete?id=@item.Id">Delete</a>
 				</td>
 			</tr>
 		}

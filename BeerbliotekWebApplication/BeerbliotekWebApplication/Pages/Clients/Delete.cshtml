@@ -1,5 +1,5 @@
 ﻿@page
-@using MySql.Data.MySqlClient;
+@using System.Data.SqlClient;
 @{
 	//db conn
 	string server = "localhost";
@@ -13,13 +13,13 @@
 		string id = Request.Query["id"];
 
 		string connectionString = $"SERVER={server};DATABASE={database};UID={user};PASSWORD={password};";
-		using (MySqlConnection connection = new MySqlConnection(connectionString))
+		using (SqlConnection connection = new SqlConnection(connectionString))
 		{
 			connection.Open();
 
-			string sql = "DELETE FROM clients WHERE id=@id";
+			string sql = "DELETE FROM Beers WHERE id=@id";
 
-			using (MySqlCommand command = new MySqlCommand(sql, connection))
+			using (SqlCommand command = new SqlCommand(sql, connection))
 			{
 				command.Parameters.AddWithValue("@id", id);
 
