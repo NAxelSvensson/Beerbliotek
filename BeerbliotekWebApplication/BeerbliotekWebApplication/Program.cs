@@ -1,3 +1,6 @@
+using BeerbliotekWebApplication.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace BeerbliotekWebApplication
 {
     public class Program
@@ -8,6 +11,11 @@ namespace BeerbliotekWebApplication
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+
+            builder.Services.AddDbContext<DatabaseContext>(
+                options => options.UseSqlServer(
+                    builder.Configuration.GetConnectionString("DefaultConnection"))
+                );
 
             var app = builder.Build();
 
