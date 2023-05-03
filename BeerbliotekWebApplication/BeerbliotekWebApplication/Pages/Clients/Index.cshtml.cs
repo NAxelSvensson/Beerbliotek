@@ -1,3 +1,4 @@
+using BeerbliotekWebApplication.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
@@ -6,7 +7,7 @@ namespace BeerbliotekWebApplication.Pages.Clients
 {
     public class IndexModel : PageModel
     {
-        public List<BeerInfo> listBeers = new List<BeerInfo>();
+        public List<Beer> listBeers = new List<Beer>();
 
         public void OnGet()
         {
@@ -25,8 +26,8 @@ namespace BeerbliotekWebApplication.Pages.Clients
                         {
                             while (reader.Read())
                             {
-                                //save data into clientInfo object
-                                BeerInfo beerInfo = new BeerInfo();
+                                //save data into object
+                                Beer beerInfo = new Beer();
 
                                 //id is of type string, but in the database it is of type int
                                 //so we add empty string to be able to convert the int into string
@@ -38,7 +39,6 @@ namespace BeerbliotekWebApplication.Pages.Clients
 								beerInfo.Type = "" + reader.GetInt32(5);
 								beerInfo.Country = reader.GetString(6);
 
-								//now lets add the object to our list
 								listBeers.Add(beerInfo);
                             }
                         }
@@ -51,17 +51,4 @@ namespace BeerbliotekWebApplication.Pages.Clients
             }
         }
     }
-
-    public class BeerInfo
-    {
-        public string Id;
-        public string Name;
-        public string Alcohol;
-        public string Price;
-        public string Volume;
-        public string Type;
-        public string Country;
-
-    }
-
 }

@@ -1,3 +1,4 @@
+using BeerbliotekWebApplication.Models;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -7,7 +8,7 @@ namespace BeerbliotekWebApplication.Pages.Clients
 {
     public class CreateModel : PageModel
     {
-        public BeerInfo beerInfo = new BeerInfo();
+        public Beer beerInfo = new Beer();
         public string errorMessage = "";
         public string successMessage = "";
 

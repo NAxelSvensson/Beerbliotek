@@ -1,18 +1,11 @@
 ﻿@page
 @using System.Data.SqlClient;
 @{
-	//db conn
-	string server = "localhost";
-	string database = "mystore";
-	string user = "root";
-	string password = "root9";
-	//db conn
-
 	try
 	{
 		string id = Request.Query["id"];
 
-		string connectionString = $"SERVER={server};DATABASE={database};UID={user};PASSWORD={password};";
+		string connectionString = "Data Source = localhost; Initial Catalog = Beerbliotek; Integrated Security = True";
 		using (SqlConnection connection = new SqlConnection(connectionString))
 		{
 			connection.Open();

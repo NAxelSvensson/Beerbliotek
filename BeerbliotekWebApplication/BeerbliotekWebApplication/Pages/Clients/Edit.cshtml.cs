@@ -1,3 +1,4 @@
+using BeerbliotekWebApplication.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
@@ -6,7 +7,7 @@ namespace BeerbliotekWebApplication.Pages.Clients
 {
     public class EditModel : PageModel
     {
-		public BeerInfo beerInfo = new BeerInfo();
+		public Beer beerInfo = new Beer();
 		public string errorMessage = "";
 		public string successMessage = "";
 
