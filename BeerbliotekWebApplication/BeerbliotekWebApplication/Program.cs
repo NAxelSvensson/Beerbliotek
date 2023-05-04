@@ -11,6 +11,7 @@ namespace BeerbliotekWebApplication
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+			builder.Services.AddControllers();
 
 			builder.Services.AddDbContext<DatabaseContext>(
                 options => options.UseSqlServer(
@@ -28,13 +29,19 @@ namespace BeerbliotekWebApplication
             }
 
             app.UseHttpsRedirection();
+
             app.UseStaticFiles();
 
             app.UseRouting();
 
             app.UseAuthorization();
 
-            app.MapRazorPages();
+			app.UseEndpoints(endpoints =>
+			{
+				endpoints.MapControllers();
+			});
+
+			app.MapRazorPages();
 
             app.Run();
         }
