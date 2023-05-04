@@ -10,6 +10,7 @@ namespace BeerbliotekWebApplication.Pages.Admin
 		public Beer beerInfo = new Beer();
 		public string errorMessage = "";
 		public string successMessage = "";
+
 		/*
 		public void OnGet()
         {
@@ -107,7 +108,8 @@ namespace BeerbliotekWebApplication.Pages.Admin
 			//redirect the user to the list of clients
 			Response.Redirect("/Admin/AdminMenu");
 
-		}*/
+		}
+		*/
 
     }
 }
