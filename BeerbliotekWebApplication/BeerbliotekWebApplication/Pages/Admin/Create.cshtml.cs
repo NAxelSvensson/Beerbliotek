@@ -2,22 +2,40 @@ using BeerbliotekWebApplication.Models;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.IdentityModel.Tokens;
 using System.Data.SqlClient;
 
 namespace BeerbliotekWebApplication.Pages.Clients
 {
     public class CreateModel : PageModel
     {
-        public Beer beerInfo = new Beer();
+        DatabaseContext databaseContext;
+        //public Beer beerInfo = new Beer();
         public string errorMessage = "";
         public string successMessage = "";
+        public CreateModel(DatabaseContext databaseContext)
+        {
+            this.databaseContext = databaseContext;
+        }
+
+        [BindProperty]
+        public Beer Beer { get; set; }
 
 		public void OnGet()
         {
         }
 
-		public void OnPost()
+		public ActionResult OnPost()
 		{
+            if (ModelState.IsValid)
+            {
+                databaseContext.Add(Beer);
+                databaseContext.SaveChanges();
+                return RedirectToPage("/AdminMenu");
+            }
+            return Page();
+
+            /*
             //link the clientinfo parameters with the html form parameters
             beerInfo.Name = Request.Form["Name"];
             beerInfo.Alcohol = Request.Form["Alcohol"];
@@ -27,7 +45,7 @@ namespace BeerbliotekWebApplication.Pages.Clients
             beerInfo.Country = Request.Form["Country"];
 
             //if one of the fields are empty, display errorMessage to the user
-            if(beerInfo.Name.Length == 0 || beerInfo.Alcohol.Length == 0 ||
+            if(beerInfo.Name.IsNullOrEmpty() || beerInfo.Alcohol.Length == 0 ||
                 beerInfo.Price.Length == 0 || beerInfo.Volume.Length == 0
 				|| beerInfo.Type.Length == 0 || beerInfo.Country.Length == 0)
             {
@@ -72,6 +90,7 @@ namespace BeerbliotekWebApplication.Pages.Clients
             //clear the fields of the clientInfo object
             beerInfo.Name = ""; beerInfo.Alcohol = ""; beerInfo.Price = ""; beerInfo.Volume = ""; beerInfo.Type = ""; beerInfo.Country = "";
             successMessage = "New beer added successfully.";
+            */
 		}
 	}
 }

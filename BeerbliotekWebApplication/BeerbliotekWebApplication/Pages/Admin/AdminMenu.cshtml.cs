@@ -5,12 +5,13 @@ using System.Data.SqlClient;
 
 namespace BeerbliotekWebApplication.Pages.Clients
 {
-    public class IndexModel : PageModel
+    public class AdminMenuModel : PageModel
     {
         public List<Beer> listBeers = new List<Beer>();
 
         public void OnGet()
         {
+            /*
             try
             {
                 string connectionString = "Data Source = localhost; Initial Catalog = Beerbliotek; Integrated Security = True";
@@ -49,6 +50,7 @@ namespace BeerbliotekWebApplication.Pages.Clients
             {
 
             }
+            */
         }
     }
 }

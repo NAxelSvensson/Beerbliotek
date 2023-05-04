@@ -5,6 +5,13 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Välkomen till Beerblioteket</h1>
+    <div class="dateOfBirth">
+        <label asp="date">Skriv in ditt födelsedatum</label>
+        <input type="date" id="date"/>
+        <button type="button" onclick="checkAge()" value="submit"></button>
+    </div>
+    <div>
+        <a asp-page="/Login/LoginMenu">Logga in</a>
+    </div>
 </div>
