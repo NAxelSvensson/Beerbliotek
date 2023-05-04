@@ -4,24 +4,16 @@ namespace BeerbliotekWebApplication.Models
 {
     public class Beer
     {
-
-        /// <summary>
-        /// Inside the database the different variables can be whatever type they want.
-        /// In our code it's easier to display and work with them as strings that hold a reference to their original type in the database.
-        /// </summary>
-		/// 
-
 		[Key]
-		public string Id { get; set; }
+		public int Id { get; set; }
 		[MaxLength(45)]
 		public string Name { get; set; }
-		public string Alcohol { get; set; }
-		public string Price { get; set; }
-		public string Volume { get; set; }
-		public string Type { get; set; }
+		public float Alcohol { get; set; }
+		public float Price { get; set; }
+		public int Volume { get; set; }
+		public int Type { get; set; }
 		[MaxLength(45)]
 		public string Country { get; set; }
-
 
 	}
 }
