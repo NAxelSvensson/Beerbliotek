@@ -1,11 +1,11 @@
 ﻿@page
-@model BeerbliotekWebApplication.Pages.Clients.AdminMenuModel
+@model BeerbliotekWebApplication.Pages.Admin.AdminMenuModel
 @{
 }
 
 <br />
 <h2>List of Beers</h2>
-<a class="btn btn-primary btn-sm" href="/Clients/Create">New Beer</a>
+<a class="btn btn-primary btn-sm" href="/Admin/Create">New Beer</a>
 <table class="table">
 	<thead>
 		<tr>
@@ -31,8 +31,8 @@
 				<td>@item.Type</td>
 				<td>@item.Country</td>
 				<td>
-					<a class="btn btn-primary btn-sm" href="/Clients/Edit?id=@item.Id">Edit</a>
-					<a class="btn btn-danger btn-sm" href="/Clients/Delete?id=@item.Id">Delete</a>
+					<a class="btn btn-primary btn-sm" href="/Admin/Edit?id=@item.Id">Edit</a>
+					<a class="btn btn-danger btn-sm" href="/Admin/Delete?id=@item.Id">Delete</a>
 				</td>
 			</tr>
 		}

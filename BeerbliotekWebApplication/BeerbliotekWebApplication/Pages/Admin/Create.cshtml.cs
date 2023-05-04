@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.IdentityModel.Tokens;
 using System.Data.SqlClient;
 
-namespace BeerbliotekWebApplication.Pages.Clients
+namespace BeerbliotekWebApplication.Pages.Admin
 {
     public class CreateModel : PageModel
     {
