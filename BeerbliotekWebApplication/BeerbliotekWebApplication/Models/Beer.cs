@@ -11,7 +11,8 @@ namespace BeerbliotekWebApplication.Models
 		public float Alcohol { get; set; }
 		public float Price { get; set; }
 		public int Volume { get; set; }
-		public int Type { get; set; }
+		[MaxLength(45)]
+		public string Type { get; set; }
 		[MaxLength(45)]
 		public string Country { get; set; }
 
