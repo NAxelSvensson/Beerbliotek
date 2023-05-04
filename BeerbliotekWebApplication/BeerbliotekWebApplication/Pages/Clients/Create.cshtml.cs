@@ -8,7 +8,7 @@ namespace BeerbliotekWebApplication.Pages.Clients
 {
     public class CreateModel : PageModel
     {
-        public Beer beerInfo = new Beer();
+        public Beer2 beerInfo = new Beer2();
         public string errorMessage = "";
         public string successMessage = "";
 

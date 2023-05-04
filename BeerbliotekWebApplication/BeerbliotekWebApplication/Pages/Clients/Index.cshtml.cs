@@ -7,7 +7,7 @@ namespace BeerbliotekWebApplication.Pages.Clients
 {
     public class IndexModel : PageModel
     {
-        public List<Beer> listBeers = new List<Beer>();
+        public List<Beer2> listBeers = new List<Beer2>();
 
         public void OnGet()
         {
@@ -27,7 +27,7 @@ namespace BeerbliotekWebApplication.Pages.Clients
                             while (reader.Read())
                             {
                                 //save data into object
-                                Beer beerInfo = new Beer();
+                                Beer2 beerInfo = new Beer2();
 
                                 //id is of type string, but in the database it is of type int
                                 //so we add empty string to be able to convert the int into string

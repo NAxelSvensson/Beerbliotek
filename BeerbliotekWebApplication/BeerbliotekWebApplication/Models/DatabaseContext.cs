@@ -8,6 +8,8 @@ namespace BeerbliotekWebApplication.Models
         {
         }
         public DbSet<Beer> Beers { get; set; }
+        public DbSet<Beer2> Beers2 { get; set; }
+
         public DbSet<Account> Accounts { get; set; }
     }
 }
