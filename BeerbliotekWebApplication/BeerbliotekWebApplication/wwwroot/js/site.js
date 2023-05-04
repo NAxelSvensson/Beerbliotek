@@ -13,9 +13,9 @@ function checkAge() {
     var comparedDate = new Date(twentyYearsBefore);
     var userDateOfBirth = new Date(inputDate);
     if (userDateOfBirth <= comparedDate) {
-        alert("You are over 20 years old");
+        //Placeholder
     }
     else {
-        alert("You are under 20 years old");
+        window.location.href="https://bravo.nu/";
     }
 }

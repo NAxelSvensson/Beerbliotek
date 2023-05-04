@@ -7,10 +7,16 @@ namespace BeerbliotekWebApplication.Pages.Clients
 {
     public class AdminMenuModel : PageModel
     {
-        public List<Beer2> listBeers = new List<Beer2>();
+        DatabaseContext databaseContext;
+        public AdminMenuModel(DatabaseContext databaseContext)
+        {
+            this.databaseContext = databaseContext;
+        }
+        public List<Beer> ListBeers;
 
         public void OnGet()
         {
+            ListBeers = databaseContext.Beers.ToList();
             /*
             try
             {
