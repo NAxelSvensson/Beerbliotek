@@ -20,6 +20,8 @@ namespace BeerbliotekWebApplication.Pages.API
 
 		// GET URL: /beer
 		[HttpGet]
+		//ActionResult returns a (IEnumerable) collection of Beer objects.
+		//IEnumerable returns that collection without having to put them in a list.
 		public async Task<ActionResult<IEnumerable<Beer>>> GetBeers()
 		{
 			return await _databaseContext.Beers.ToListAsync();
@@ -72,6 +74,9 @@ namespace BeerbliotekWebApplication.Pages.API
 			{
 				await _databaseContext.SaveChangesAsync();
 			}
+
+			//if multiple users or processes try to update the db at the same time
+			//prevent that from happening
 			catch (DbUpdateConcurrencyException)
 			{
 				return StatusCode(500);

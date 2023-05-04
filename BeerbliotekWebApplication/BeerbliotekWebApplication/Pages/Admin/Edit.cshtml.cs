@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
 
-namespace BeerbliotekWebApplication.Pages.Clients
+namespace BeerbliotekWebApplication.Pages.Admin
 {
     public class EditModel : PageModel
     {
@@ -105,7 +105,7 @@ namespace BeerbliotekWebApplication.Pages.Clients
 			}
 
 			//redirect the user to the list of clients
-			Response.Redirect("/Clients/Index");
+			Response.Redirect("/Admin/AdminMenu");
 
 		}
 

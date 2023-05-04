@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
 
-namespace BeerbliotekWebApplication.Pages.Clients
+namespace BeerbliotekWebApplication.Pages.Admin
 {
     public class AdminMenuModel : PageModel
     {
