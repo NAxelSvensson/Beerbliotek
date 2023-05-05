@@ -31,7 +31,7 @@ namespace BeerbliotekWebApplication.Pages.Admin
             {
                 databaseContext.Beers.Add(Beer);
                 databaseContext.SaveChanges();
-                return RedirectToPage("/AdminMenu");
+                return RedirectToPage("/Admin/AdminMenu");
             }
             return Page();
 
