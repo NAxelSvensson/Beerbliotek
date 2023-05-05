@@ -7,10 +7,11 @@ namespace BeerbliotekWebApplication.Pages.Admin
 {
     public class EditModel : PageModel
     {
-		public Beer2 beerInfo = new Beer2();
+		public Beer beerInfo = new Beer();
 		public string errorMessage = "";
 		public string successMessage = "";
 
+		/*
 		public void OnGet()
         {
 			//read the id of the client
@@ -108,6 +109,7 @@ namespace BeerbliotekWebApplication.Pages.Admin
 			Response.Redirect("/Admin/AdminMenu");
 
 		}
+		*/
 
     }
 }
