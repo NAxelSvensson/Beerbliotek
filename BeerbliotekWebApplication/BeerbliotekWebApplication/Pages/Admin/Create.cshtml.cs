@@ -29,7 +29,7 @@ namespace BeerbliotekWebApplication.Pages.Admin
 		{
             if (ModelState.IsValid)
             {
-                databaseContext.Add(Beer);
+                databaseContext.Beers.Add(Beer);
                 databaseContext.SaveChanges();
                 return RedirectToPage("/AdminMenu");
             }

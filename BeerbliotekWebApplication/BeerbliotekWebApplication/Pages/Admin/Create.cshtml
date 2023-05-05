@@ -16,7 +16,32 @@
 	</div>
 }
 
-
+<form method="post">
+	<div class="row mb-3">
+		<label class="col-sm-3" asp-for="@Model.Beer.Name">Namn</label>
+		<input class="col-sm-6" asp-for="@Model.Beer.Name" />
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3" asp-for="@Model.Beer.Alcohol">Alkohol %</label>
+		<input class="col-sm-6" asp-for="@Model.Beer.Alcohol" />
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3" asp-for="@Model.Beer.Price">Pris</label>
+		<input class="col-sm-6" asp-for="@Model.Beer.Price" />
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3" asp-for="@Model.Beer.Volume">Volym ml</label>
+		<input class="col-sm-6" asp-for="@Model.Beer.Volume" />
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3" asp-for="@Model.Beer.Type">Typ</label>
+		<input class="col-sm-6" asp-for="@Model.Beer.Type" />
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3" asp-for="@Model.Beer.Country">Land</label>
+		<input class="col-sm-6" asp-for="@Model.Beer.Country" />
+	</div>
+<!--
 <form method="POST">
 	<div class="row mb-3">
 		<label class="col-sm-3 col-form-label">Name</label>
@@ -54,7 +79,7 @@
 			<input type="text" class="form-control" name="Country" value="@Model.Beer.Country">
 		</div>
 	</div>
-
+-->
 	@if (Model.successMessage.Length > 0)
 	{
 		<div class="row mb-3">
