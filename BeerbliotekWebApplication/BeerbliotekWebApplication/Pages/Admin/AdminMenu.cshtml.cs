@@ -19,5 +19,18 @@ namespace BeerbliotekWebApplication.Pages.Admin
         {
             ListBeers = databaseContext.Beers.ToList();
         }
+
+        public ActionResult OnGetDelete(int? id)
+        {
+            if (id != null)
+            {
+                var data = (from beer in databaseContext.Beers
+                            where beer.Id == id
+                            select beer).SingleOrDefault();
+                databaseContext.Remove(data);
+                databaseContext.SaveChanges();
+            }
+            return RedirectToPage("/Admin/AdminMenu");
+        }
     }
 }

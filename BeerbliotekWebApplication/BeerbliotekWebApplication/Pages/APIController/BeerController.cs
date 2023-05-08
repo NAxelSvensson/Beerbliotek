@@ -101,5 +101,20 @@ namespace BeerbliotekWebApplication.Pages.API
 
 			return NoContent();
 		}
+
+		[HttpPost]
+		public async Task<IActionResult> Delete(Beer model)
+		{
+			var beer = await _databaseContext.Beers.FindAsync(model.Id);
+			if (beer != null)
+			{
+				_databaseContext.Beers.Remove(beer);
+				await _databaseContext.SaveChangesAsync();
+
+				return RedirectToAction("Index");
+			}
+
+			return RedirectToAction("Index");
+		}
 	}
 }

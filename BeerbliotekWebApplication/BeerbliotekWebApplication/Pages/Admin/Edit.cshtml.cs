@@ -7,9 +7,45 @@ namespace BeerbliotekWebApplication.Pages.Admin
 {
     public class EditModel : PageModel
     {
-		public Beer beerInfo = new Beer();
+		DatabaseContext databaseContext;
+		
 		public string errorMessage = "";
 		public string successMessage = "";
+		public EditModel(DatabaseContext databaseContext)
+		{
+			this.databaseContext = databaseContext;
+		}
+
+		[BindProperty]
+		public Beer Beer { get; set; }
+
+		public void OnGet(int id)
+		{
+			Beer = databaseContext.Beers.Find(id);
+		}
+
+		public ActionResult OnPost()
+		{
+			if (ModelState.IsValid)
+			{
+				Beer updateBeer = databaseContext.Beers.Find(Beer.Id);
+
+				updateBeer.Name = Beer.Name;
+				updateBeer.Alcohol = Beer.Alcohol;
+				updateBeer.Price = Beer.Price;
+				updateBeer.Volume = Beer.Volume;
+				updateBeer.Type = Beer.Type;
+				updateBeer.Country = Beer.Country;
+
+				databaseContext.SaveChanges();
+				return RedirectToPage("/Admin/AdminMenu");
+			}
+			return Page();
+		}
+
+		//public Beer beerInfo = new Beer();
+		//public string errorMessage = "";
+		//public string successMessage = "";
 
 		/*
 		public void OnGet()
@@ -111,5 +147,5 @@ namespace BeerbliotekWebApplication.Pages.Admin
 		}
 		*/
 
-    }
+	}
 }

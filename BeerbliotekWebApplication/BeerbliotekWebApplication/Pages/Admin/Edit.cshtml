@@ -16,45 +16,73 @@
 	</div>
 }
 
+<form method="post">
+	<input type="hidden" asp-for="@Model.Beer.Id" />
+	<div class="row mb-3">
+		<label class="col-sm-3" asp-for="@Model.Beer.Name">Namn</label>
+		<input type="text" class="col-sm-6" asp-for="@Model.Beer.Name" />
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3" asp-for="@Model.Beer.Alcohol">Alkohol %</label>
+		<input type="number" class="col-sm-6" asp-for="@Model.Beer.Alcohol" />
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3" asp-for="@Model.Beer.Price">Pris</label>
+		<input type="number" class="col-sm-6" asp-for="@Model.Beer.Price" />
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3" asp-for="@Model.Beer.Volume">Volym ml</label>
+		<input type="number" class="col-sm-6" asp-for="@Model.Beer.Volume" />
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3" asp-for="@Model.Beer.Type">Typ</label>
+		<input type="text" class="col-sm-6" asp-for="@Model.Beer.Type" />
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3" asp-for="@Model.Beer.Country">Land</label>
+		<input type="text" class="col-sm-6" asp-for="@Model.Beer.Country" />
+	</div>
 
+<!--
 <form method="POST">
-	<input type="hidden" name="id" value="@Model.beerInfo.Id">
+	<input type="hidden" name="id" value="Model.beerInfo.Id">
 	<div class="row mb-3">
 		<label class="col-sm-3 col-form-label">Name</label>
 		<div class="col-sm-6">
-			<input type="text" class="form-control" name="name" value="@Model.beerInfo.Name">
+			<input type="text" class="form-control" name="name" value="Model.beerInfo.Name">
 		</div>
 	</div>
 	<div class="row mb-3">
 		<label class="col-sm-3 col-form-label">Alcohol</label>
 		<div class="col-sm-6">
-			<input type="text" class="form-control" name="Alcohol" value="@Model.beerInfo.Alcohol">
+			<input type="text" class="form-control" name="Alcohol" value="Model.beerInfo.Alcohol">
 		</div>
 	</div>
 	<div class="row mb-3">
 		<label class="col-sm-3 col-form-label">Price</label>
 		<div class="col-sm-6">
-			<input type="text" class="form-control" name="Price" value="@Model.beerInfo.Price">
+			<input type="text" class="form-control" name="Price" value="Model.beerInfo.Price">
 		</div>
 	</div>
 	<div class="row mb-3">
 		<label class="col-sm-3 col-form-label">Volume</label>
 		<div class="col-sm-6">
-			<input type="text" class="form-control" name="Volume" value="@Model.beerInfo.Volume">
+			<input type="text" class="form-control" name="Volume" value="Model.beerInfo.Volume">
 		</div>
 	</div>
 	<div class="row mb-3">
 		<label class="col-sm-3 col-form-label">Type</label>
 		<div class="col-sm-6">
-			<input type="text" class="form-control" name="Type" value="@Model.beerInfo.Type">
+			<input type="text" class="form-control" name="Type" value="Model.beerInfo.Type">
 		</div>
 	</div>
 	<div class="row mb-3">
 		<label class="col-sm-3 col-form-label">Country</label>
 		<div class="col-sm-6">
-			<input type="text" class="form-control" name="Country" value="@Model.beerInfo.Country">
+			<input type="text" class="form-control" name="Country" value="Model.beerInfo.Country">
 		</div>
 	</div>
+-->
 
 	@if (Model.successMessage.Length > 0)
 	{
@@ -74,7 +102,7 @@
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</div>
 		<div class="col-sm-3 d-grid">
-			<a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+			<a class="btn btn-secondary" href="/Admin/AdminMenu" role="button">Cancel</a>
 		</div>
 	</div>
 </form>

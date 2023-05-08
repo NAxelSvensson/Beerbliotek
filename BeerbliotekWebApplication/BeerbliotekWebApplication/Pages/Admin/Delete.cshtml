@@ -1,29 +1,31 @@
 ﻿@page
 @using System.Data.SqlClient;
 @{
-	try
-	{
-		string id = Request.Query["id"];
 
-		string connectionString = "Data Source = localhost; Initial Catalog = Beerbliotek; Integrated Security = True";
-		using (SqlConnection connection = new SqlConnection(connectionString))
-		{
-			connection.Open();
+	
+	//try
+	//{
+	//	string id = Request.Query["id"];
 
-			string sql = "DELETE FROM Beers WHERE id=@id";
+	//	string connectionString = "Data Source = localhost; Initial Catalog = Beerbliotek; Integrated Security = True";
+	//	using (SqlConnection connection = new SqlConnection(connectionString))
+	//	{
+	//		connection.Open();
 
-			using (SqlCommand command = new SqlCommand(sql, connection))
-			{
-				command.Parameters.AddWithValue("@id", id);
+	//		string sql = "DELETE FROM Beers WHERE id=id";
 
-				command.ExecuteNonQuery();
-			}
-		}
+	//		using (SqlCommand command = new SqlCommand(sql, connection))
+	//		{
+	//			command.Parameters.AddWithValue("id", id);
 
-	}
-	catch (Exception ex)
-	{
-	}
+	//			command.ExecuteNonQuery();
+	//		}
+	//	}
 
-	Response.Redirect("/Admin/AdminMenu");
+	//}
+	//catch (Exception ex)
+	//{
+	//}
+
+	//Response.Redirect("/Admin/AdminMenu");
 }

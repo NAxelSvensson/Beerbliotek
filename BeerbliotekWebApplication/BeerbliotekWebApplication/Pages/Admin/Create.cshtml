@@ -19,27 +19,27 @@
 <form method="post">
 	<div class="row mb-3">
 		<label class="col-sm-3" asp-for="@Model.Beer.Name">Namn</label>
-		<input class="col-sm-6" asp-for="@Model.Beer.Name" />
+		<input type="text" class="col-sm-6" asp-for="@Model.Beer.Name" />
 	</div>
 	<div class="row mb-3">
 		<label class="col-sm-3" asp-for="@Model.Beer.Alcohol">Alkohol %</label>
-		<input class="col-sm-6" asp-for="@Model.Beer.Alcohol" />
+		<input type="number" class="col-sm-6" asp-for="@Model.Beer.Alcohol" />
 	</div>
 	<div class="row mb-3">
 		<label class="col-sm-3" asp-for="@Model.Beer.Price">Pris</label>
-		<input class="col-sm-6" asp-for="@Model.Beer.Price" />
+		<input type="number" class="col-sm-6" asp-for="@Model.Beer.Price" />
 	</div>
 	<div class="row mb-3">
 		<label class="col-sm-3" asp-for="@Model.Beer.Volume">Volym ml</label>
-		<input class="col-sm-6" asp-for="@Model.Beer.Volume" />
+		<input type="number" class="col-sm-6" asp-for="@Model.Beer.Volume" />
 	</div>
 	<div class="row mb-3">
 		<label class="col-sm-3" asp-for="@Model.Beer.Type">Typ</label>
-		<input class="col-sm-6" asp-for="@Model.Beer.Type" />
+		<input type="text" class="col-sm-6" asp-for="@Model.Beer.Type" />
 	</div>
 	<div class="row mb-3">
 		<label class="col-sm-3" asp-for="@Model.Beer.Country">Land</label>
-		<input class="col-sm-6" asp-for="@Model.Beer.Country" />
+		<input type="text" class="col-sm-6" asp-for="@Model.Beer.Country" />
 	</div>
 
 <!--
@@ -99,7 +99,7 @@
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</div>
 		<div class="col-sm-3 d-grid">
-			<a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+			<a class="btn btn-secondary" href="/Admin/AdminMenu" role="button">Cancel</a>
 		</div>
 	</div>
 </form>
