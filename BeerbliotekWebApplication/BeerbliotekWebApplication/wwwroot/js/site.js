@@ -13,7 +13,7 @@ function checkAge() {
     var comparedDate = new Date(twentyYearsBefore);
     var userDateOfBirth = new Date(inputDate);
     if (userDateOfBirth <= comparedDate) {
-        //Placeholder
+        window.location.href="/MainPage/MainPage"
     }
     else {
         window.location.href="https://bravo.nu/";
