@@ -1,13 +1,26 @@
 ﻿:root {
-    --site-color-1: #c13584;
-    --site-color-hover: #490a2e;
+    --site-color-1: #161415;
+    --site-color-hover: #514a4e;
 }
 
 body {
     background-color: rgb(143, 137, 137);
+    background: url(../css/pics/beer.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    margin-bottom: 60px;
 }
 
 h1 {
+    font-size: 25px;
+    line-height: 32px;
+    color: #fff;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+h2 {
     font-size: 25px;
     line-height: 32px;
     color: #fff;
@@ -41,21 +54,7 @@ a {
     justify-content: space-between;
     z-index: 1000;
 }
-
-.header-main-logo {
-    width: fit-content;
-    height: 100%;
-    padding: left 60px;
-    ;
-    display: flex;
-}
-
-    .header-main-logo img {
-        height: 30px;
-        align-self: center;
-    }
-
-.header-main-nav {
+ .header-main-nav {
     width: fit-content;
     height: 100%;
 }
@@ -80,11 +79,12 @@ a {
             }
 
         .header-main-nav ul a:hover {
-            color: #c13584;
+            color: #514a4e;
         }
 
 .header-main-sm {
     width: 120px;
     height: 100%;
     padding-right: 60px;
-}
+} 
+
