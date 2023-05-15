@@ -30,19 +30,55 @@
     </header>
     -->
     <main>
-        <div class="main-intro">
+        <div id="gridcontainer">
+            <div class="main-intro">
             <h1>Här kan du skapa<br>ett bibliotek över alla<br>dina favoritöl</h1>
-            <h2>Ditt eget beerbliotek!</h2>
-            <a href="#">?????</a>
+                <h2>Ditt eget beerbliotek!</h2>
+            </div>
+            
         </div>
         
+        <div class="beerlist">
+            <table class="table">
+                <thead>
+                    <tr>
+                        
+                        <th>Name</th>
+                        <th>Alcohol</th>
+                        <th>Price</th>
+                        <th>Volume</th>
+                        <th>Type</th>
+                        <th>Country</th>
+                        
+                    </tr>
+                </thead> 
+                
+                @*<tbody>
+                    @foreach (var item in Model.ListBeers)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Name</td>
+                            <td>@item.Alcohol</td>
+                            <td>@item.Price</td>
+                            <td>@item.Volume</td>
+                            <td>@item.Type</td>
+                            <td>@item.Country</td>
+                           
+                        </tr>
+                    }
+                </tbody>*@
+             </table> 
+
+        </div>
+       
 
     </main>
     <aside> 
         <div class="main-side">
 
-            <p>"Beerbliotek har"<br>verkligen förbättrad mitt liv"<br>-Bob</p>
-            <p>"Kända<br> ölcitat"<br>-Jake</p>
+            <p>Beerbliotek</p>
+            
         </div> </aside>
     
 </body>

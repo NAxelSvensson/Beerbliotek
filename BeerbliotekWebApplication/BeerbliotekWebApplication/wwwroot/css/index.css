@@ -2,6 +2,12 @@
 * {
     margin: 0;
 }
+
+
+
+
+
+
 main {
     width: 100%;
     height: calc(100vh - 60px);
@@ -17,46 +23,45 @@ main {
     margin-bottom: 60px;
 }
 
+
     main main-intro h1 {
+        
+        text-align: left;
+        padding: 10px 10px 10px 10px;
         font-size: 96px;
         line-height: 106px;
-    }
-
-    main p {
-        font-size: 18px;
-        line-height: 30px;
         
     }
 
-    main a {
-        margin-top: 30px;
-        font-size: 18px;
-        display: block;
-        background-color: var(--site-color-1);
-        padding: 10px 20px;
-        width: fit-content;
-    }
+  
+
+   
 
   
 
     main .main-intro {
         position: relative;
-        right: 18vh;
+        
         padding-bottom: 8vh;
     }
 
     main .main-side {
-        position: absolute;
         
+        position: relative;
         padding-bottom: 8vh;
         float: right;
     }
-     main .main-side p {
-        border-left: 4px solid var(--site-color-1);
-        padding-left: 20px;
-        margin: 40px 0;
-    }
-
-        main .main-side p:nth-child(2) {
-            margin-left: 100px;
+        main .main-side p {
+            
+            border-left: 5px solid var(--site-color-1);
+            padding-left: 25px;
+            margin: 10px;
         }
+
+     
+
+.beerlist {
+    
+    margin-top: 50px;
+    position: center;
+}

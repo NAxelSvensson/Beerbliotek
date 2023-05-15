@@ -15,7 +15,7 @@ body {
 h1 {
     font-size: 25px;
     line-height: 32px;
-    color: #fff;
+    color: black;
     font-family: 'Times New Roman', Times, serif;
     font-weight: 600;
     text-transform: uppercase;
@@ -23,17 +23,19 @@ h1 {
 h2 {
     font-size: 25px;
     line-height: 32px;
-    color: #fff;
+    color: black;
     font-family: 'Times New Roman', Times, serif;
     font-weight: 600;
     text-transform: uppercase;
 }
 
 p {
-    font-size: 14px;
-    line-height: 18px;
-    color: #fff;
+    writing-mode: vertical-rl;
+    font-size: 45px;
+    line-height: 3px;
+    color: black;
     font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
 }
 
 a {
@@ -54,37 +56,6 @@ a {
     justify-content: space-between;
     z-index: 1000;
 }
- .header-main-nav {
-    width: fit-content;
-    height: 100%;
-}
+ 
 
-    .header-main-nav ul {
-        list-style: none;
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-
-        .header-main-nav ul li {
-            display: inline;
-            float: left;
-        }
-
-            .header-main-nav ul li a {
-                padding: 0 10px;
-                font-family: Arial, Helvetica, sans-serif;
-                line-height: 60px;
-                color: black;
-                height: 100%;
-            }
-
-        .header-main-nav ul a:hover {
-            color: #514a4e;
-        }
-
-.header-main-sm {
-    width: 120px;
-    height: 100%;
-    padding-right: 60px;
-} 
 

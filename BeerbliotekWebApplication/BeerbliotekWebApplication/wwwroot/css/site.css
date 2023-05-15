@@ -14,5 +14,10 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    background-color: rgb(143, 137, 137);
+    background: url(../css/pics/beer.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    margin-bottom: 60px;
 }
