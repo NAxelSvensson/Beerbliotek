@@ -24,5 +24,9 @@ namespace BeerbliotekWebApplication.Models
 			Type = type;
 			Country = country;
 		}
+		public Beer()
+		{
+
+		}
 	}
 }

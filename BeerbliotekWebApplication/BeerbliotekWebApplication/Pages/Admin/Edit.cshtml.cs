@@ -8,9 +8,6 @@ namespace BeerbliotekWebApplication.Pages.Admin
     public class EditModel : PageModel
     {
 		DatabaseContext databaseContext;
-		
-		public string errorMessage = "";
-		public string successMessage = "";
 		public EditModel(DatabaseContext databaseContext)
 		{
 			this.databaseContext = databaseContext;

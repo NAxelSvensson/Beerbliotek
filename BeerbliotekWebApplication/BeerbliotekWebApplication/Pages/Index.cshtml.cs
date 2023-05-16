@@ -14,7 +14,7 @@ namespace BeerbliotekWebApplication.Pages
 
         public void OnGet()
         {
-            /*
+            //If there is not any data. Create some example data
             if(databaseContext.Beers.ToList().Count == 0)
             { 
                 databaseContext.Beers.Add(new Beer("Staropramen", 5, 17.90, 330, "Ljus Lager", "Tjeckien"));
@@ -31,7 +31,6 @@ namespace BeerbliotekWebApplication.Pages
                 databaseContext.Accounts.Add(adminAccount);
             }
             databaseContext.SaveChanges();
-        } */
         }
     }
 }

@@ -11,9 +11,7 @@
 main {
     width: 100%;
     height: calc(100vh - 60px);
-    /*/background-color: rgb(109, 105, 105);*/
     margin-top: 10px;
-    /*/background: url(../css/pics/beer.jpg);*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom, center;

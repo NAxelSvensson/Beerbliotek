@@ -5,7 +5,7 @@
 
 <br />
 <h2>List of Beers</h2>
-<a class="btn btn-primary btn-sm" asp-page="Create">Create new beer to database</a>  <!-- href="/Admin/Create">New Beer</a> -->
+<a class="btn btn-primary btn-sm" asp-page="Create">Create new beer to database</a>
 
 <table class="table">
 	<thead>
@@ -33,7 +33,6 @@
 				<td>@item.Country</td>
 				<td>
 					<a class="btn btn-primary btn-sm" href="/Admin/Edit?id=@item.Id">Edit</a>
-					<!-- <a class="btn btn-danger btn-sm" href="/Admin/Delete?id=item.Id">Delete</a> -->
 					<a class="btn btn-danger btn-sm" asp-page="AdminMenu" onclick="return confirm('Vill du radera post?');" asp-page-handler="Delete" asp-route-id="@item.Id">Delete</a>
 				</td>
 			</tr>

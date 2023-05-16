@@ -20,15 +20,19 @@ namespace BeerbliotekWebApplication.Pages.Login
         public ActionResult OnPost()
         {
             ListAccounts = databaseContext.Accounts.ToList();
-            foreach(Account account in ListAccounts)
+            if (ListAccounts.Count > 0)
             {
-                if(account.Username.Equals(InputAccount.Username) && account.Password.Equals(InputAccount.Password))
+                foreach (Account account in ListAccounts)
                 {
-					return RedirectToPage("/Admin/AdminMenu");
-				}
-                return Page();
+                    if (account.Username.Equals(InputAccount.Username) && account.Password.Equals(InputAccount.Password))
+                    {
+                        return RedirectToPage("/Admin/AdminMenu");
+                    }
+                    return Page();
+                }
+                return RedirectToPage("/Index");
             }
-            return RedirectToPage("/Index");
+            return Page();
         }
     }
 }

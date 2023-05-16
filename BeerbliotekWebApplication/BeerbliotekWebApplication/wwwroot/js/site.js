@@ -12,6 +12,7 @@ function checkAge() {
     var twentyYearsBefore = currentMonth + '/' + currentDay + '/' + nineteenYearsBefore;
     var comparedDate = new Date(twentyYearsBefore);
     var userDateOfBirth = new Date(inputDate);
+    //Checking if the inouted date is 20 years or older
     if (userDateOfBirth <= comparedDate) {
         window.location.href="/MainPage/MainPage"
     }

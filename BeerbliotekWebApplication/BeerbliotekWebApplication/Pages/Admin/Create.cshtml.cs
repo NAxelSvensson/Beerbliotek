@@ -10,8 +10,6 @@ namespace BeerbliotekWebApplication.Pages.Admin
     public class CreateModel : PageModel
     {
         DatabaseContext databaseContext;
-        public string errorMessage = "";
-        public string successMessage = "";
         public CreateModel(DatabaseContext databaseContext)
         {
             this.databaseContext = databaseContext;
